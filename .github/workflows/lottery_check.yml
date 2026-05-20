@@ -1,0 +1,21 @@
+name: ポケセン抽選チェック
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Python設定
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: ライブラリインストール
+        run: pip install requests beautifulsoup4 python-dotenv
+      - name: 実行
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python pokecen_notify.py

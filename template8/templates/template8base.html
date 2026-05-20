@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+filename='main.css') }}">
+  <title>{% block title %}{%
+endblock %}</title>
+</head>
+<body>
+  <header class="h">これはヘッダーです</header>
+
+  <div class="main">
+    <h1>見出し</h1>
+
+    <p>{% block p %}{% endblock%}</p>
+
+    <ul>
+      <li><a href="/">最初のページ</a></li>
+      <li><a href="/html2">次のページ</a></li>
+      <li><a href="/html3">最後のページ</a></li>
+    </ul>
+  </div>
+
+  <footer class="f">これはフッターです</footer>
+</body>
+</html>
